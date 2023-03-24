@@ -1,3 +1,6 @@
+#------------------------------
+# Lambda
+#------------------------------
 resource "aws_lambda_function" "lambda" {
   filename = "./handler.zip"
   function_name = "${var.project}-${var.env}-lambda"
