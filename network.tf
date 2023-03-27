@@ -27,6 +27,17 @@ resource "aws_subnet" "public_subnet-1a" {
     Env     = var.env
   }
 }
+resource "aws_subnet" "public_subnet-1c" {
+  vpc_id            = aws_vpc.vpc.id
+  cidr_block        = "10.0.30.0/24"
+  availability_zone = "ap-northeast-1c"
+
+  tags = {
+    Name    = "${var.project}-${var.env}-public-subnet-1c"
+    Project = var.project
+    Env     = var.env
+  }
+}
 resource "aws_subnet" "private_subnet-1a" {
   vpc_id            = aws_vpc.vpc.id
   cidr_block        = "10.0.20.0/24"

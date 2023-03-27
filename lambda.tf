@@ -2,7 +2,7 @@
 # Lambda
 #------------------------------
 resource "aws_lambda_function" "lambda" {
-  filename = "./handler.zip"
+  filename      = "./handler.zip"
   function_name = "${var.project}-${var.env}-lambda"
   role          = aws_iam_role.lambda-role.arn
   handler       = "handler"
