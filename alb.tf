@@ -49,7 +49,7 @@ resource "aws_lb_target_group" "alb-target-group" {
   }
 }
 resource "aws_lb_target_group_attachment" "alb-target-group-attachment" {
-  target_group_arn  = aws_lb_target_group.alb-target-group.arn
-  target_id         = aws_instance.web-server.id
-  port              = 80
+  target_group_arn = aws_lb_target_group.alb-target-group.arn
+  target_id        = aws_instance.web-server.id
+  port             = 80
 }
