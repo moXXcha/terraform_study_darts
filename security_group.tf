@@ -29,6 +29,16 @@ resource "aws_security_group_rule" "web-sg-ingress-ssh-rule" {
   from_port         = 22
   cidr_blocks       = ["0.0.0.0/0"]
 }
+
+resource "aws_security_group_rule" "web-sg-ingress-grafana-rule" {
+  security_group_id = aws_security_group.web-sg.id
+  type              = "ingress"
+  protocol          = "tcp"
+  to_port           = 3000
+  from_port         = 3000
+  cidr_blocks       = ["0.0.0.0/0"]
+}
+
 resource "aws_security_group_rule" "web-sg-egress-http-rule" {
   security_group_id = aws_security_group.web-sg.id
   type              = "egress"
@@ -37,6 +47,16 @@ resource "aws_security_group_rule" "web-sg-egress-http-rule" {
   from_port         = 80
   cidr_blocks       = ["0.0.0.0/0"]
 }
+
+resource "aws_security_group_rule" "web-sg-egress-https-rule" {
+  security_group_id = aws_security_group.web-sg.id
+  type              = "egress"
+  protocol          = "tcp"
+  to_port           = 443
+  from_port         = 443
+  cidr_blocks       = ["0.0.0.0/0"]
+}
+
 //db
 resource "aws_security_group" "db-sg" {
   name        = "${var.project}-${var.env}-db-sg"
