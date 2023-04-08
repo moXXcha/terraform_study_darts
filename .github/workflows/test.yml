@@ -1,0 +1,7 @@
+name: study-actions
+on: [push]
+jobs: 
+  study-action:
+    runs-on: ubuntu-latest
+    steps:
+     - run: echo "いえーい"
